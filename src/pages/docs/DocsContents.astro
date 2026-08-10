@@ -17,9 +17,7 @@ const docsByCate = docsCollection.reduce((acc: { [key: string]: typeof docsColle
 }, {})
 
 const docCategories = {
-  setup: 'Setup',
-  integrations: 'Integrations',
-  advanced: 'Advanced'
+  websitelogs: '建站记'
 }
 
 type Props = {
@@ -27,16 +25,16 @@ type Props = {
   class?: string
 }
 
-const { title = true, class: className, ...props } = Astro.props
+const { title = true, class: className, horizontal = false, ...props } = Astro.props       /* attention 发生了修改 */ /* 新增 horizontal 参数，默认 false（竖排）谁想横排，调用时传 horizontal 即可。 */        
 ---
 
 <docs-toc class={cn('not-prose', className)} {...props}>
   {title && <h2 class='text-foreground font-medium'>DOCS</h2>}
-  <ul class='mt-4 flex flex-col gap-y-5'>
+  <ul class={cn('mt-4 flex ms-6', horizontal ? 'flex-row flex-wrap gap-x-44' : 'flex-col gap-y-5')}>            {/*这是决定网站每一个栏目横着摆还是纵着摆的代码 此处让含有horizontal标签的Docs首页导航栏保持横向 由于文档底部导航栏未传horizontal*/}  {/* attention 发生了修改 */}
     {
       Object.entries(docCategories).map(([id, title]: [string, string]) => (
         <li>
-          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{title}</h3>
+          <h3 class='text-muted-foreground text-lg font-bold tracking-wide uppercase'>{title}</h3>    {/*决定了标题的文字显示效果*/} {/* text-lg 修改了小标题的字号——调整为大号 */}
           <ul class='mt-2 flex flex-col'>
             {docsByCate[id]
               .sort((a, b) => a.data.order - b.data.order)
@@ -59,10 +57,10 @@ const { title = true, class: className, ...props } = Astro.props
     content: '';
     display: block;
     position: absolute;
-    top: 5%;
-    bottom: 5%;
-    left: -0.5rem;
-    width: 2px;
+    top: 0%;            /* top bottom 可以改变竖线的长度 也可以决定了每一个小栏目前面的竖线是否连续 */  /* 将top bottom改为0 使竖线连续 */
+    bottom: 0%;
+    left: -0.2rem;
+    width: 4px;         /* 竖线粗细 */  /* 将width增大 加粗了竖线 */
     background-color: hsl(var(--input) / var(--un-bg-opacity));
   }
 

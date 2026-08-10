@@ -27,7 +27,7 @@
 - [x] :mag: 使用 [pagefind](https://pagefind.app/) 构建的全站搜索
 - [x] :world_map: 站点地图和 RSS 订阅
 - [x] :spider_web: 友好的 SEO
-- [x] :book: 目录（table of contents）
+- [x] :book: 目录（<h2 id='Blog>）
 - [x] :framed_picture: 动态为文章生成可供三方媒体预览的分享图像
 - [x] :framed_picture: Mediumzoom 图像灯箱
 

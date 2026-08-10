@@ -17,17 +17,23 @@ const headings = [
   <p>EE / Student</p>
   <p>
     你好，这里是就读于上海电机学院飞行器控制与信息工程的 Misaka13548，目前正在学习高等数学
-    </p>
+  </p>
+
   <p>
     网站所使用的主题是 Astro-pure-lab 哦
-    </p>
+  </p>
+
   <p>
     欢迎找我聊天，如果我有空的话。
-    </p>
+  </p>
+
   <p>
     <a href="https://codetime.dev"><img alt="CodeTime Badge" src="https://shields.jannchie.com/endpoint?style=flat&color=ef4444&url=https%3A%2F%2Fcodetime.dev%2Fv3%2Fusers%2Fshield%3Fuid%3D37491%26label_color%3D0369a1"></a>
-    </p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' />
+  </p>
+  
+  {/* 
+    <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' /> 
+  */}
 
   {/* general-talk */}
   <h2 id='hobbies'>Hobbies</h2>
@@ -163,9 +169,19 @@ const headings = [
   <Timeline
     events={[
       {
+        date: '2026-08-10',
+        content:
+          '进一步修改了 导航栏功能，增加 Notes 主栏目。'
+      },
+      {
+        date: '2026-08-09',
+        content:
+          '修改了Docs的 导航栏配置。'
+      },
+      {
         date: '2026-08-07',
         content:
-          '网站以 <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a> 在个人电脑上修改并测试'
+          '网站以 <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a> 在个人电脑上修改并测试。'
       }
     ]}
   />

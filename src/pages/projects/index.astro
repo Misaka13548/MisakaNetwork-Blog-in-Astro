@@ -11,11 +11,8 @@ import KeyIcon from '@/assets/icons/key.svg'
 import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
-  { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
-  { depth: 2, slug: 'others', text: 'Others' },
-  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
-  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+  { depth: 2, slug: 'blog', text: 'Blog' },
+  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' }
 ]
 ---
 
@@ -38,15 +35,15 @@ const headings = [
     <Icon class='size-5' name='receive-money' slot='before' />
   </Button>
   
-  <h2 id='Blog'>Blog</h2>
+  <h2 id='blog'>Blog</h2>
   <ProjectSection
     projects={[
       {
         name: 'Misaka13548\'s Blog',
         description: 'Current version of my blog, built with Astro framework',
         links: [
-          { type: 'github', href: 'https://github.com/cworld1/astro-theme-pure' },
-          { type: 'site', href: 'https://astro-pure.js.org' }
+          { type: 'github', href: 'https://github.com/Misaka13548/MisakaNetwork-Blog-in-Astro' },
+          { type: 'site', href: 'http://localhost:4321' }
         ]
       }
     ]}
