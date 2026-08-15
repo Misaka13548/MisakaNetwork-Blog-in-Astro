@@ -1,0 +1,35 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content'
+import PageLayout from '@/layouts/ContentLayout.astro'
+
+export const prerender = true
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('hardware')).sort((a, b) => a.data.order - b.data.order)
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post }
+  }))
+}
+
+type Props = {
+  post: CollectionEntry<'hardware'>
+}
+
+const { post } = Astro.props
+const { Content, headings } = await render(post)
+const { description, title } = post.data
+---
+
+<PageLayout meta={{ description, title }} back='/about#tools'>
+  <Fragment slot='header'>
+    <h1 class='text-2xl font-medium sm:mb-2 sm:text-3xl'>{title}</h1>
+    {description && (
+      <blockquote class='text-sm italic text-muted-foreground'>
+        <q>{description}</q>
+      </blockquote>
+    )}
+  </Fragment>
+
+  <Content />
+</PageLayout>

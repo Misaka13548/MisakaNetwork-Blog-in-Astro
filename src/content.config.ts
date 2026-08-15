@@ -57,4 +57,15 @@ const docs = defineCollection({
     })
 })
 
-export const collections = { blog, docs }
+// Define hardware collection
+const hardware = defineCollection({
+  loader: glob({ base: './src/content/hardware', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      order: z.number().default(999)
+    })
+})
+
+export const collections = { blog, docs, hardware }
