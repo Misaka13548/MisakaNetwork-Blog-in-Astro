@@ -7,7 +7,7 @@ publishDate: 2026-08-15
 
 **CPU：** Intel E5-2689B v3 [16C/32T]
 
-**GPU：** GTX 1060 [3GB]
+**GPU：** GTX 2060 [6GB]
 
 **主板：** 精粤 X99M-G D3
 

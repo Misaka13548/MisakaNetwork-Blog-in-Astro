@@ -3,6 +3,7 @@ import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
+import keilIcon from '@/assets/tools/keil.png'
 
 const headings = [
   { depth: 2, slug: 'hobbies', text: 'Hobbies' },
@@ -129,6 +130,12 @@ const headings = [
         description: 'IDE',
         href: 'https://visualstudio.microsoft.com/',
         icon: import('@/assets/tools/visualstudio.svg?raw')
+      },
+      {
+        name: 'Keil',
+        description: 'Embedded IDE',
+        href: 'https://www.keil.com/',
+        icon: keilIcon
       }
     ]}
   />
