@@ -8,6 +8,9 @@ import config from '@/site-config'
 // all pages through the use of the <BaseLayout /> component.
 import '@/assets/styles/global.css'
 import '@/assets/styles/app.css'
+// KaTeX 样式必须在全站生效：docs 页面同样由 remark-math + rehype-katex 渲染公式，
+// 缺少本文件时 .katex-mathml（无障碍层）不会被隐藏，会与 .katex-html 视觉层同时显示。
+import 'katex/dist/katex.min.css'
 
 interface Props {
   meta: SiteMeta
