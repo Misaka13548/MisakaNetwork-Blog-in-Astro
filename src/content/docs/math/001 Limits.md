@@ -1,5 +1,5 @@
 ---
-title: '001 Limit'
+title: '001 Limits'
 description: '99% 的内容来自 deepseek V4.1 flash 生成。'
 publishDate: 2026-10-27 18:15:00
 tags:
