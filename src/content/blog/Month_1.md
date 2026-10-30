@@ -4,6 +4,7 @@ description: Record
 publishDate: 2026-9-30
 tags:
   - 记录
+  - 思考
 draft: false
 ---
 ## 社团

@@ -1,4 +1,12 @@
-# 时间转换
+---
+title: 时间转换
+description: Record
+publishDate: 2026-10-28
+tags:
+  - 记录
+  - 思考
+draft: false
+---
 
 暂时不知道大学有什么用。<br>
 
