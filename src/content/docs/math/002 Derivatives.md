@@ -1231,3 +1231,290 @@ $$
 ### 易错点
 
 暂时留空
+
+## 参数方程求导
+
+### 定义
+
+前面的函数都是 $y = f(x)$ 这种"直接给 $y$"的形式. 还有一种常见的给法：$x$ 和 $y$ 都由同一个参数 $t$ 决定，
+
+$$
+\begin{cases}
+x = \varphi(t) \\[4pt]
+y = \psi(t)
+\end{cases}
+\qquad (\alpha \le t \le \beta)
+$$
+
+这叫**参数方程**. 它同样确定了一条曲线，也就同样有 $\dfrac{dy}{dx}$，只是不能直接求，得靠 $t$ 搭桥.
+
+典型的例子：
+
+- 圆：$x = a\cos t,\ y = a\sin t$
+- 椭圆：$x = a\cos t,\ y = b\sin t$
+- 摆线：$x = a(t - \sin t),\ y = a(1 - \cos t)$
+- 对数螺线：$x = e^{t}\cos t,\ y = e^{t}\sin t$
+
+### 定理（一阶导数）
+
+设 $\varphi(t)$、$\psi(t)$ 都可导，且 $\varphi'(t) \neq 0$，则
+
+$$
+\frac{dy}{dx} = \frac{\dfrac{dy}{dt}}{\dfrac{dx}{dt}} = \frac{\psi'(t)}{\varphi'(t)}
+$$
+
+一句话记法：**上下分别对 $t$ 求导，再相除**. 因为 $\dfrac{dy}{dx} = \dfrac{dy/dt}{dx/dt}$ 本质上就是分子分母同除 $dt$，所以它和莱布尼茨记号完全自洽.
+
+**条件 $\varphi'(t) \neq 0$ 不能省**：它保证 $x$ 在局部能反解成 $t$ 的函数，否则曲线在该点可能有竖直切线，$\dfrac{dy}{dx}$ 不存在.
+
+### 定理（二阶导数）
+
+$$
+\frac{d^{2}y}{dx^{2}} = \frac{\psi''(t)\,\varphi'(t) - \psi'(t)\,\varphi''(t)}{\left[\varphi'(t)\right]^{3}}
+$$
+
+这个公式不好背，更好的做法是**记住怎么算**，一次推三遍比背十遍牢：
+
+1. 先把一阶导 $\dfrac{dy}{dx}$ 算出来，它是 $t$ 的函数，记作 $g(t)$；
+2. 对 $x$ 再求一次导，但 $g$ 是 $t$ 的函数，所以要用链式法则：
+
+$$
+\frac{d^{2}y}{dx^{2}} = \frac{d}{dx}\left(\frac{dy}{dx}\right)
+= \frac{\dfrac{d}{dt}\,g(t)}{\dfrac{dx}{dt}}
+$$
+
+也就是**"对 $t$ 求完导，再除以 $\varphi'(t)$"**.
+
+### 备注
+
+**$\dfrac{d^{2}y}{dx^{2}}$ 绝对不等于 $\dfrac{\psi''(t)}{\varphi''(t)}$.** 这是参数方程这一节最高频的错误，没有之一.
+
+原因和隐函数求二阶导那节一样：$\dfrac{dy}{dx}$ 已经不是原来的函数了，它是 $t$ 的函数，再对 $x$ 求导时必须补一个 $\dfrac{dt}{dx} = \dfrac{1}{\varphi'(t)}$，漏掉这个因子结果就完全不对.
+
+用 $x = t^{2},\ y = t^{3}$ 验一下就知道差距有多大：正确答案是 $\dfrac{3}{4t}$，而错误做法给的 $\dfrac{6t}{2} = 3t$，差了一个量级.
+
+### 例题 1
+
+求摆线
+
+$$
+\begin{cases}
+x = a(t - \sin t) \\[4pt]
+y = a(1 - \cos t)
+\end{cases}
+$$
+
+的一阶导数 $\dfrac{dy}{dx}$（$a > 0$）.
+
+### 例题解答 1
+
+分别对 $t$ 求导：
+
+$$
+\frac{dx}{dt} = a(1 - \cos t), \qquad \frac{dy}{dt} = a\sin t
+$$
+
+相除，$a$ 直接约掉：
+
+$$
+\frac{dy}{dx} = \frac{a\sin t}{a(1 - \cos t)} = \frac{\sin t}{1 - \cos t}
+$$
+
+到这一步已经算完了，但用半角公式还能化得更干净：
+
+$$
+\frac{\sin t}{1 - \cos t}
+= \frac{2\sin\dfrac{t}{2}\cos\dfrac{t}{2}}{2\sin^{2}\dfrac{t}{2}}
+= \frac{\cos\dfrac{t}{2}}{\sin\dfrac{t}{2}}
+= \cot\frac{t}{2}
+$$
+
+摆线的一阶导化简成 $\cot\dfrac{t}{2}$，后面求二阶导会方便很多.
+
+### 例题 2
+
+设
+
+$$
+\begin{cases}
+x = t^{2} \\[4pt]
+y = t^{3}
+\end{cases}
+$$
+
+求 $\dfrac{dy}{dx}$ 与 $\dfrac{d^{2}y}{dx^{2}}$.
+
+### 例题解答 2
+
+**一阶导**：
+
+$$
+\frac{dx}{dt} = 2t, \qquad \frac{dy}{dt} = 3t^{2}
+$$
+
+$$
+\frac{dy}{dx} = \frac{3t^{2}}{2t} = \frac{3}{2}t \qquad (t \neq 0)
+$$
+
+**二阶导** 用"对 $t$ 求导再除以 $\varphi'(t)$"：
+
+$$
+\frac{d^{2}y}{dx^{2}}
+= \frac{\dfrac{d}{dt}\left(\dfrac{3}{2}t\right)}{\dfrac{dx}{dt}}
+= \frac{\dfrac{3}{2}}{2t}
+= \frac{3}{4t}
+$$
+
+用公式验一遍：$\psi'' = 6t$，$\varphi'' = 2$，
+
+$$
+\frac{6t\cdot 2t - 3t^{2}\cdot 2}{(2t)^{3}}
+= \frac{12t^{2} - 6t^{2}}{8t^{3}}
+= \frac{6t^{2}}{8t^{3}} = \frac{3}{4t}
+$$
+
+两者一致.
+
+### 例题 3
+
+求椭圆
+
+$$
+\begin{cases}
+x = a\cos t \\[4pt]
+y = b\sin t
+\end{cases}
+$$
+
+在 $t = \dfrac{\pi}{4}$ 处的切线方程.
+
+### 例题解答 3
+
+**斜率**：
+
+$$
+\frac{dx}{dt} = -a\sin t, \qquad \frac{dy}{dt} = b\cos t
+$$
+
+$$
+\frac{dy}{dx} = \frac{b\cos t}{-a\sin t} = -\frac{b}{a}\cot t
+$$
+
+代入 $t = \dfrac{\pi}{4}$，$\cot\dfrac{\pi}{4} = 1$，故
+
+$$
+k = -\frac{b}{a}
+$$
+
+**切点坐标** 要代回参数方程，不能只代 $x$：
+
+$$
+x_0 = a\cos\frac{\pi}{4} = \frac{a}{\sqrt{2}}, \qquad
+y_0 = b\sin\frac{\pi}{4} = \frac{b}{\sqrt{2}}
+$$
+
+**切线方程**：
+
+$$
+y - \frac{b}{\sqrt{2}} = -\frac{b}{a}\left(x - \frac{a}{\sqrt{2}}\right)
+$$
+
+注意切点 $(x_0, y_0)$ 必须由参数方程**成对**算出，这是参数方程求切线最容易漏的一步.
+
+### 例题 4
+
+求摆线 $x = a(t - \sin t)$、$y = a(1 - \cos t)$ 的二阶导数 $\dfrac{d^{2}y}{dx^{2}}$.
+
+### 例题解答 4
+
+例题 1 已经算出一阶导：
+
+$$
+\frac{dy}{dx} = \cot\frac{t}{2}
+$$
+
+现在对它求 $t$ 的导数，再除以 $\dfrac{dx}{dt}$：
+
+$$
+\frac{d}{dt}\left(\cot\frac{t}{2}\right) = -\csc^{2}\frac{t}{2}\cdot\frac{1}{2} = -\frac{1}{2\sin^{2}\dfrac{t}{2}}
+$$
+
+而
+
+$$
+\frac{dx}{dt} = a(1 - \cos t) = 2a\sin^{2}\frac{t}{2}
+$$
+
+两式相除：
+
+$$
+\frac{d^{2}y}{dx^{2}}
+= \frac{-\dfrac{1}{2\sin^{2}\dfrac{t}{2}}}{2a\sin^{2}\dfrac{t}{2}}
+= -\frac{1}{4a\sin^{4}\dfrac{t}{2}}
+$$
+
+这个结果有个物理意义：摆线的曲率处处不为零，且 $\sin\dfrac{t}{2} = 0$ 处（即 $t = 2k\pi$，摆线的尖点）二阶导发散，对应尖点处曲率无穷大.
+
+### 例题 5
+
+求曲线
+
+$$
+\begin{cases}
+x = e^{t}\cos t \\[4pt]
+y = e^{t}\sin t
+\end{cases}
+$$
+
+在 $t = 0$ 处的切线方程.
+
+### 例题解答 5
+
+**分别求导**（都要用乘积法则）：
+
+$$
+\frac{dx}{dt} = e^{t}\cos t - e^{t}\sin t = e^{t}\left(\cos t - \sin t\right)
+$$
+
+$$
+\frac{dy}{dt} = e^{t}\sin t + e^{t}\cos t = e^{t}\left(\sin t + \cos t\right)
+$$
+
+**斜率**：
+
+$$
+\frac{dy}{dx} = \frac{\sin t + \cos t}{\cos t - \sin t}
+$$
+
+代入 $t = 0$：
+
+$$
+k = \frac{0 + 1}{1 - 0} = 1
+$$
+
+**切点**：
+
+$$
+x_0 = e^{0}\cos 0 = 1, \qquad y_0 = e^{0}\sin 0 = 0
+$$
+
+**切线方程**：
+
+$$
+y - 0 = 1\cdot(x - 1) \quad \Longrightarrow \quad y = x - 1
+$$
+
+### 技巧
+
+| 遇到 | 手段 |
+| :--- | :--- |
+| 参数方程求一阶导 | 分别求 $\dfrac{dx}{dt}$、$\dfrac{dy}{dt}$，然后相除 |
+| 求二阶导 | **对 $t$ 求导后再除以 $\varphi'(t)$**，千万别写 $\dfrac{\psi''}{\varphi''}$ |
+| 求某点的切线 | 先由参数值得**切点坐标**，再由 $\dfrac{dy}{dx}$ 得斜率 |
+| 一阶导结果很丑 | 用三角半角/倍角公式化简，二阶导会省一半力气 |
+| $x$、$y$ 含 $e^{t}$ 或 $\ln t$ | 求导用乘积法则，别漏项 |
+| 题目问"曲线上某点" | 通常先反解出 $t$ 的值，再代公式 |
+
+### 易错点
+
+暂时留空
