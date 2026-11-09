@@ -114,7 +114,7 @@ export const integ: IntegrationUserConfig = {
       applyTip: [
         { name: 'Name', val: theme.title },
         { name: 'Desc', val: theme.description || 'Null' },
-        { name: 'Link', val: 'https://msknw.xyz/' },
+        { name: 'Link', val: 'https://www.msknw.xyz/' },
         { name: 'Avatar', val: 'https://msknw.xyz/favicon/favicon.ico' }
       ],
       // Cache avatars in `public/avatars/` to improve user experience.
