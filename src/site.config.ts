@@ -104,27 +104,23 @@ export const theme: ThemeUserConfig = {
 export const integ: IntegrationUserConfig = {
   // [Links]
   // https://astro-pure.js.org/docs/integrations/links
-  /*
+  
     links: {
       // Friend logbook
       logbook: [
-        { date: '2025-03-16', content: 'Is there a leakage?' },
-        { date: '2025-03-16', content: 'A leakage of what?' },
-        { date: '2025-03-16', content: 'I have a full seat of water, like, full of water!' },
-        { date: '2025-03-16', content: 'Must be the water.' },
-        { date: '2025-03-16', content: "Let's add that to the words of wisdom." }
+        { date: '2026-11-19', content: "开机了喵." }
       ],
       // Yourself link info
       applyTip: [
         { name: 'Name', val: theme.title },
         { name: 'Desc', val: theme.description || 'Null' },
-        { name: 'Link', val: 'https://astro-pure.js.org/' },
-        { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+        { name: 'Link', val: 'https://msknw.xyz/' },
+        { name: 'Avatar', val: 'https://msknw.xyz/favicon/favicon.ico' }
       ],
       // Cache avatars in `public/avatars/` to improve user experience.
       cacheAvatar: false
     },
-  */
+  
   // [Search]
   pagefind: true,
   // Add a random quote to the footer (default on homepage footer)
