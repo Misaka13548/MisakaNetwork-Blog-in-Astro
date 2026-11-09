@@ -63,8 +63,8 @@ export const theme: ThemeUserConfig = {
     links: [
       // Registration link
       {
-        title: 'Moe ICP 114514',
-        link: 'https://icp.gov.moe/?keyword=114514',
+        title: '沪ICP备 2026059254 号',
+        link: 'https://beian.miit.gov.cn',
         style: 'text-sm' // Uno/TW CSS class
       },
       // Privacy Policy link
@@ -166,7 +166,7 @@ export const integ: IntegrationUserConfig = {
   waline: {
     enable: true,
     // Server service link
-    server: 'http://localhost:8360',
+    server: 'https://www.msknw.xyz/',
     // Show meta info for comments
     showMeta: false,
     // Refer https://waline.js.org/en/guide/features/emoji.html
